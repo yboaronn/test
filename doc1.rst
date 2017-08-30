@@ -8,7 +8,7 @@ be implemented in the following way:
 * **Service**: It is translated to a single **LoadBalancer** and as many
   **Listeners** and **Pools** as ports the Kubernetes Service spec defines.
 * **ClusterIP**: It is translated to a LoadBalancer's VIP.
-* **loadBalancerIP**: it is translated to public IP associated with the  LoadBalancer's VIP.                      
+* **loadBalancerIP**: Translated to public IP associated with the  LoadBalancer's VIP.                      
 * **Endpoints**: The Endpoint object is translated to a LoadBalancer's VIP.
 
 
@@ -393,6 +393,7 @@ The services and pods subnets should be created.
    API`_ section
    
 #. In case external services (type=LoadBalancer) should be supported
+   excute the next steps 
 
    A. Create an external/provider network
    B. Create subnet/pool range of external CIDR 
