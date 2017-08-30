@@ -372,16 +372,7 @@ The services and pods subnets should be created.
     [neutron_defaults]
     pod_subnet = e0a888ab-9915-4685-a600-bffe240dc58b
     service_subnet = d6438a81-22fa-4a88-9b05-c4723662ef36
-
-#. In case external services (type=LoadBalancer) should be supported
-     Create an external/provider network
-     Create subnet/pool range of external CIDR 
-     Connect external subnet to kuryr-kubernetes router
-     Configure Kuryr.conf public ip subnet to point external subnet ::
-
-    [neutron_defaults]
-    public_ip_subnet=  external_subnet_id 
-
+    
 #. Configure Kubernetes API server to use only a subset of the service
    addresses, **10.2.0.0/17**. The rest will be used for loadbalancer *vrrp*
    ports managed by Octavia. To configure Kubernetes with this CIDR range you
@@ -400,6 +391,17 @@ The services and pods subnets should be created.
 #. Once you have Kubernetes installed and you have the API host reachable from
    the pod subnet, follow the `Making the Pods be able to reach the Kubernetes
    API`_ section
+   
+#. In case external services (type=LoadBalancer) should be supported
+
+   A. Create an external/provider network
+   B. Create subnet/pool range of external CIDR 
+   C. Connect external subnet to kuryr-kubernetes router
+   D. Configure Kuryr.conf public ip subnet to point external subnet
+    
+    ::[neutron_defaults]
+      public_ip_subnet=  external_subnet_id 
+
 
 Alternative configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~
