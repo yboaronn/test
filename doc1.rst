@@ -213,7 +213,7 @@ The services and pods subnets should be created.
 
 #. Create service subnet. We reserve the first half of the subnet range for the
    VIPs and the second half for the loadbalancer vrrp ports ::
-
+   
     $ openstack subnet create --network services --no-dhcp \
         --gateway 10.2.255.254 \
         --ip-version 4 \
@@ -397,12 +397,11 @@ The services and pods subnets should be created.
    A. Create an external/provider network
    B. Create subnet/pool range of external CIDR 
    C. Connect external subnet to kuryr-kubernetes router
-   D. Configure Kuryr.conf public ip subnet to point external subnet
-    
-    ::[neutron_defaults]
-      public_ip_subnet=  external_subnet_id 
-
-
+   D. Configure Kuryr.conf public ip subnet to point external subnet::
+                           
+         [neutron_defaults]
+         public_ip_subnet=  external_subnet_id 
+         
 Alternative configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 It is actually possible to avoid this routing by performing a deployment change
