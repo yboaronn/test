@@ -415,7 +415,7 @@ The services and pods subnets should be created.
    For the 'User' case, user should first create an external/floating IP::
 
     $#openstack floating ip create --subnet <ext-subnet-id> <ext-netowrk-id>
-    $ openstack floating ip create --subnet 48ddcfec-1b29-411b-be92-8329cc09fc12  3b4eb25e-e103-491f-a640-a6246d588561
+    $openstack floating ip create --subnet 48ddcfec-1b29-411b-be92-8329cc09fc12  3b4eb25e-e103-491f-a640-a6246d588561
     +---------------------------+--------------------------------------+
     | Field               | Value                                |
     +---------------------+--------------------------------------+
